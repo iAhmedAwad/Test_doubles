@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Test_doubles</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="long_text">TextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextView</string>
+    <string name="posts">Posts</string>
+</resources>
