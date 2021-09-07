@@ -1,11 +1,11 @@
-package com.trianglz.test_doubles.common.posts.presentation
+package com.trianglz.test_doubles.modules.posts.presentation
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.trianglz.test_doubles.common.posts.domain.models.PostDomainModel
-import com.trianglz.test_doubles.common.posts.domain.usecases.GetPostsUseCase
+import com.trianglz.test_doubles.modules.posts.domain.models.PostDomainModel
+import com.trianglz.test_doubles.modules.posts.domain.usecases.GetPostsUseCase
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
