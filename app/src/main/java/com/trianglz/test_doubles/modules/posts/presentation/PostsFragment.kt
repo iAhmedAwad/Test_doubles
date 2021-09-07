@@ -1,12 +1,10 @@
-package com.trianglz.test_doubles.common.posts.presentation
+package com.trianglz.test_doubles.modules.posts.presentation
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.trianglz.test_doubles.common.posts.domain.models.PostDomainModel
-import com.trianglz.test_doubles.common.posts.presentation.recyclerview.PostsAdapter
+import com.trianglz.test_doubles.modules.posts.presentation.recyclerview.PostsAdapter
 import com.trianglz.test_doubles.databinding.FragmentPostsBinding
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject

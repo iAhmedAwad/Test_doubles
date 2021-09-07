@@ -1,8 +1,8 @@
-package com.trianglz.test_doubles.common.posts.di
+package com.trianglz.test_doubles.modules.posts.di
 
-import com.trianglz.test_doubles.common.posts.data.service.PostsService
-import com.trianglz.test_doubles.common.posts.data.repository.PostsRepoImpl
-import com.trianglz.test_doubles.common.posts.domain.repository.PostsRepo
+import com.trianglz.test_doubles.modules.posts.data.service.PostsService
+import com.trianglz.test_doubles.modules.posts.data.repository.PostsRepoImpl
+import com.trianglz.test_doubles.modules.posts.domain.repository.PostsRepo
 import dagger.Binds
 import dagger.Module
 import dagger.Provides

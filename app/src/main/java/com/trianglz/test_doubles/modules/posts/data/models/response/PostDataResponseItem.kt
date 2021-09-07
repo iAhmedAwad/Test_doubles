@@ -1,4 +1,4 @@
-package com.trianglz.test_doubles.common.posts.data.models.response
+package com.trianglz.test_doubles.modules.posts.data.models.response
 
 
 import com.squareup.moshi.Json

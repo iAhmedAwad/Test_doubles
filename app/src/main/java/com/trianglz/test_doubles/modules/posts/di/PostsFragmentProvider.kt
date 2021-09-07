@@ -1,6 +1,6 @@
-package com.trianglz.test_doubles.common.posts.di
+package com.trianglz.test_doubles.modules.posts.di
 
-import com.trianglz.test_doubles.common.posts.presentation.PostsFragment
+import com.trianglz.test_doubles.modules.posts.presentation.PostsFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

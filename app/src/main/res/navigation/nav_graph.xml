@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/postsFragment"
-        android:name="com.trianglz.test_doubles.common.posts.presentation.PostsFragment"
+        android:name="com.trianglz.test_doubles.modules.posts.presentation.PostsFragment"
         android:label="fragment_posts"
         tools:layout="@layout/fragment_posts" />
 </navigation>

@@ -1,12 +1,11 @@
-package com.trianglz.test_doubles.common.posts.presentation.recyclerview
+package com.trianglz.test_doubles.modules.posts.presentation.recyclerview
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.trianglz.test_doubles.common.posts.domain.models.PostDomainModel
+import com.trianglz.test_doubles.modules.posts.domain.models.PostDomainModel
 import com.trianglz.test_doubles.databinding.ItemPostBinding
 import javax.inject.Inject
 

@@ -1,4 +1,4 @@
-package com.trianglz.test_doubles.common.posts.di
+package com.trianglz.test_doubles.modules.posts.di
 
 import javax.inject.Scope
 

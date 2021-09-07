@@ -1,7 +1,7 @@
-package com.trianglz.test_doubles.common.posts.di
+package com.trianglz.test_doubles.modules.posts.di
 
 import androidx.lifecycle.ViewModel
-import com.trianglz.test_doubles.common.posts.presentation.PostsViewModel
+import com.trianglz.test_doubles.modules.posts.presentation.PostsViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.ClassKey
