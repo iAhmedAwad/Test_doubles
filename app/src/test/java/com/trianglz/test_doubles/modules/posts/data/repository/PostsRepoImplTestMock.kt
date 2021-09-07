@@ -1,10 +1,11 @@
 package com.trianglz.test_doubles.modules.posts.data.repository
 
+import com.google.common.truth.Truth.assertThat
 import com.trianglz.test_doubles.modules.posts.domain.models.PostDomainModel
 import com.trianglz.test_doubles.modules.posts.domain.repository.PostsRepo
 import junit.framework.TestCase
 
-class PostsRepoImplTestSpy : PostsRepo {
+class PostsRepoImplTestMock : PostsRepo {
     private var addCalled = 0
     private var lastPostAdded: PostDomainModel? = null
 
@@ -20,11 +21,10 @@ class PostsRepoImplTestSpy : PostsRepo {
         return list
     }
 
-    fun getTimesCalled(): Int {
-        return addCalled
-    }
+    fun verify(post: PostDomainModel, timesCalled: Int) {
 
-    fun getLastPostAdded(): PostDomainModel? {
-        return lastPostAdded
+        assertThat(addCalled).isEqualTo(timesCalled)
+        assertThat(lastPostAdded).isEqualTo(post)
+
     }
 }

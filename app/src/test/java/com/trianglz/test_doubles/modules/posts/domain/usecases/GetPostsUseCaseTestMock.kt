@@ -1,44 +1,41 @@
 package com.trianglz.test_doubles.modules.posts.domain.usecases
 
-import com.google.common.truth.Truth.assertThat
-import com.trianglz.test_doubles.modules.posts.data.repository.PostsRepoImplTestSpy
+import com.trianglz.test_doubles.modules.posts.data.repository.PostsRepoImplTestMock
 import com.trianglz.test_doubles.modules.posts.domain.models.PostDomainModel
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Before
 import org.junit.Test
 
-class GetPostsUseCaseTestSpy {
+class GetPostsUseCaseTestMock {
 
-    lateinit var repo: PostsRepoImplTestSpy
+    lateinit var repo: PostsRepoImplTestMock
     lateinit var useCase: GetPostsUseCase
-    val post = PostDomainModel(1, "title1", "body1")
+    private val post = PostDomainModel(1, "title1", "body1")
+
     @Before
     fun setup() {
-        repo = PostsRepoImplTestSpy()
+        repo = PostsRepoImplTestMock()
         useCase = GetPostsUseCase(repo)
     }
 
     @Test
     fun timesCalled_twoTimes_isTwo() {
+
         runBlockingTest {
-
             useCase.addPost(post)
             useCase.addPost(post)
-
-            assertThat(repo.getTimesCalled()).isEqualTo(2)
-
+            repo.verify(post, 2)
         }
     }
 
     @Test
     fun getLastPostAdded_specificPost_isSpecificPost() {
-        runBlockingTest {
 
+        runBlockingTest {
             val post2 = PostDomainModel(2, "title2", "body2")
             useCase.addPost(post)
             useCase.addPost(post2)
-
-            assertThat(repo.getLastPostAdded()).isEqualTo(post2)
+            repo.verify(post2, 2)
         }
     }
 }
