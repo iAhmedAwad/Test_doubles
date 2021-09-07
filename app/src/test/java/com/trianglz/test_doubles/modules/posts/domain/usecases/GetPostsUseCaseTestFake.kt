@@ -3,20 +3,19 @@ package com.trianglz.test_doubles.modules.posts.domain.usecases
 import com.google.common.truth.Truth.assertThat
 import com.trianglz.test_doubles.common.posts.data.repository.FakePostsRepo
 import com.trianglz.test_doubles.modules.posts.domain.models.PostDomainModel
-
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Test
 
-class GetPostsUseCaseTestFake {
+class GetPostsUseCaseTestFake{
 
     @Test
-    fun getPosts() {
+    fun getPosts_withNoDuplicates_isTrue() {
 
         runBlockingTest {
 
             val fakePostRepo = FakePostsRepo()
             val useCase=GetPostsUseCase(fakePostRepo)
-            val post =PostDomainModel(id = 1, title = "title",body = "body")
+            val post = PostDomainModel(id = 1, title = "title",body = "body")
             useCase.addPost(post)
             useCase.addPost(post)
             useCase.addPost(post)
@@ -24,4 +23,5 @@ class GetPostsUseCaseTestFake {
             assertThat(result).containsNoDuplicates()
         }
     }
+
 }
