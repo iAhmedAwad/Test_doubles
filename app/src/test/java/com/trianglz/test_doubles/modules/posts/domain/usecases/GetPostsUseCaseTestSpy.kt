@@ -11,7 +11,7 @@ class GetPostsUseCaseTestSpy {
 
     lateinit var repo: PostsRepoImplTestSpy
     lateinit var useCase: GetPostsUseCase
-    val post = PostDomainModel(1, "title1", "body1")
+    private val post = PostDomainModel(1, "title1", "body1")
     @Before
     fun setup() {
         repo = PostsRepoImplTestSpy()
