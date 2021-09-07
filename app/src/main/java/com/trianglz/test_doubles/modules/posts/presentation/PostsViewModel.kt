@@ -21,7 +21,7 @@ class PostsViewModel @Inject constructor(private val postsUseCase: GetPostsUseCa
 
     private fun getPosts() {
         viewModelScope.launch {
-            _postsList.postValue(postsUseCase.execute())
+            _postsList.postValue(postsUseCase.getPosts())
         }
     }
 
