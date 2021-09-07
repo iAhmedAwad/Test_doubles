@@ -6,8 +6,8 @@ import javax.inject.Inject
 
 class GetPostsUseCase @Inject constructor(private val postsRepo: PostsRepo) {
 
-suspend fun execute(): List<PostDomainModel> {
-    return postsRepo.getPosts()
-}
+    suspend fun execute(): List<PostDomainModel> {
+        return postsRepo.getPosts().toSet().toList()
+    }
 
 }

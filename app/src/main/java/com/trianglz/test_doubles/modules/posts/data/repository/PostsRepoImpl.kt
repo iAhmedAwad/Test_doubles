@@ -38,6 +38,10 @@ class PostsRepoImpl @Inject constructor(private val service: PostsService):Posts
         }
     }
 
+    override suspend fun addPost(post: PostDomainModel) {
+        throw AssertionError("Method not yet implemented")
+    }
+
     companion object{
         private const val TAG = "PostsRepoImpl"
     }
