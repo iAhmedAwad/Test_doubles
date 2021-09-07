@@ -10,7 +10,7 @@ class GetPostsUseCase @Inject constructor(private val postsRepo: PostsRepo) {
         return postsRepo.getPosts().toSet().toList()
     }
 
-    suspend fun addPost(post:PostDomainModel){
-        postsRepo.addPost(post)
+    suspend fun getFirstFivePosts(): List<PostDomainModel> {
+      return getPosts().take(5)
     }
 }
