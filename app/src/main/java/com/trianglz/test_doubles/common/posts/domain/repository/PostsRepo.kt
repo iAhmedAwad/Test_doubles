@@ -4,4 +4,5 @@ import com.trianglz.test_doubles.common.posts.domain.models.PostDomainModel
 
 interface PostsRepo {
   suspend  fun getPosts():List<PostDomainModel>
+  suspend fun addPost(postDomainModel: PostDomainModel)
 }

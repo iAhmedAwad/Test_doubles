@@ -6,24 +6,15 @@ import com.trianglz.test_doubles.common.posts.domain.repository.PostsRepo
 import kotlinx.coroutines.delay
 
 class FakePostsRepo : PostsRepo {
-    private val list = ArrayList<PostDomainModel>().apply {
-        repeat(10) {
-            val postDomainModel = PostDomainModel(
-                id = it, title = "Post number: $it",
-                body = "Body of post number: $it"
-            )
-            add(postDomainModel)
-        }
-        val postDomainModel = PostDomainModel(
-            id = 3, title = "Post number: 3",
-            body = "Body of post number: 3"
-        )
-        add(postDomainModel)
-    }
+    private val list = ArrayList<PostDomainModel>()
 
     override suspend fun getPosts(): List<PostDomainModel> {
         delay((2 * 60 * 1000).toLong())
         return list
+    }
+
+    override suspend fun addPost(postDomainModel: PostDomainModel) {
+        list.add(postDomainModel)
     }
 
 }
