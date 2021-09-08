@@ -133,8 +133,8 @@ dependencies {
     implementation "com.github.haroldadmin:NetworkResponseAdapter:4.1.0"
 
     //Mockito
-    testImplementation "org.mockito:mockito-core:3.12.4"
-    androidTestImplementation "org.mockito:mockito-core:3.12.4"
+    testImplementation "org.mockito:mockito-core:3.+"
+    androidTestImplementation "org.mockito:mockito-core:3.+"
 
     // Local Unit Tests
     testImplementation "org.hamcrest:hamcrest-all:1.3"
