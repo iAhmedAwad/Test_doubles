@@ -5,6 +5,7 @@ import com.trianglz.test_doubles.modules.posts.domain.models.PostDomainModel
 import com.trianglz.test_doubles.modules.posts.domain.repository.PostsRepo
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
+import org.junit.Before
 
 
 import org.junit.Test
@@ -13,23 +14,28 @@ import org.mockito.InjectMocks
 import org.mockito.Mock
 import org.mockito.Mockito.`when`
 import org.mockito.Mockito.mock
+import org.mockito.MockitoAnnotations
 import org.mockito.junit.MockitoJUnitRunner
 
 @ExperimentalCoroutinesApi
-// @RunWith(MockitoJUnitRunner::class)
+@RunWith(MockitoJUnitRunner::class)
 class GetPostsUseCaseTest {
 
-    // @Mock
-    // private lateinit var repo: PostsRepo
-    //
-    // @InjectMocks
-    // private lateinit var useCase: GetPostsUseCase
+    @Mock
+    private lateinit var repo: PostsRepo
+
+    @InjectMocks
+    private lateinit var useCase: GetPostsUseCase
+
+    //Make private
+    // @Before
+    //  fun setup() {
+    //     MockitoAnnotations.openMocks(this)
+    // }
+
     @Test
     fun execute_containsNoNull_isTrue() {
         runBlockingTest {
-
-            val repo = mock(PostsRepo::class.java)
-            val useCase = GetPostsUseCase(repo)
 
             val posts = ArrayList<PostDomainModel>().apply {
                 repeat(5) { add(PostDomainModel(1, "title", "body")) }
