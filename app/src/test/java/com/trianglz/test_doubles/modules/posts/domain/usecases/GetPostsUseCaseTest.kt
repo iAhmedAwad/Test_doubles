@@ -1,25 +1,26 @@
 package com.trianglz.test_doubles.modules.posts.domain.usecases
 
+
 import com.google.common.truth.Truth.assertThat
 import com.trianglz.test_doubles.modules.posts.domain.models.PostDomainModel
 import com.trianglz.test_doubles.modules.posts.domain.repository.PostsRepo
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
-import org.junit.Before
-
-
+import org.junit.Rule
 import org.junit.Test
-import org.junit.runner.RunWith
 import org.mockito.InjectMocks
 import org.mockito.Mock
 import org.mockito.Mockito.`when`
-import org.mockito.Mockito.mock
-import org.mockito.MockitoAnnotations
-import org.mockito.junit.MockitoJUnitRunner
+import org.mockito.junit.MockitoJUnit
+import org.mockito.junit.MockitoRule
 
 @ExperimentalCoroutinesApi
-@RunWith(MockitoJUnitRunner::class)
+
 class GetPostsUseCaseTest {
+
+    @Rule
+    @JvmField
+    val rule: MockitoRule = MockitoJUnit.rule()
 
     @Mock
     private lateinit var repo: PostsRepo
@@ -27,7 +28,7 @@ class GetPostsUseCaseTest {
     @InjectMocks
     private lateinit var useCase: GetPostsUseCase
 
-    //Make private
+
     // @Before
     //  fun setup() {
     //     MockitoAnnotations.openMocks(this)
