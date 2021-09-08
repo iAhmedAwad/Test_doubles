@@ -3,11 +3,13 @@ package com.trianglz.test_doubles.modules.posts.domain.usecases
 import com.google.common.truth.Truth.assertThat
 import com.trianglz.test_doubles.common.posts.data.repository.FakePostsRepo
 import com.trianglz.test_doubles.modules.posts.domain.models.PostDomainModel
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Test
 
 class GetPostsUseCaseTestFake{
 
+    @ExperimentalCoroutinesApi
     @Test
     fun getPosts_withNoDuplicates_isTrue() {
 
