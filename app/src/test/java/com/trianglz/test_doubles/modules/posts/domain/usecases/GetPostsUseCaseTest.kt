@@ -9,6 +9,7 @@ import kotlinx.coroutines.test.runBlockingTest
 
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.mockito.InjectMocks
 import org.mockito.Mock
 import org.mockito.Mockito.`when`
 import org.mockito.Mockito.mock
@@ -20,11 +21,13 @@ class GetPostsUseCaseTest {
 
     // @Mock
     // private lateinit var repo: PostsRepo
-
+    //
+    // @InjectMocks
+    // private lateinit var useCase: GetPostsUseCase
     @Test
     fun execute_containsNoNull_isTrue() {
         runBlockingTest {
-            
+
             val repo = mock(PostsRepo::class.java)
             val useCase = GetPostsUseCase(repo)
 
