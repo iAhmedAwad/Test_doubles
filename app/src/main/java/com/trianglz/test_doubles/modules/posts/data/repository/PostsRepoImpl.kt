@@ -38,6 +38,10 @@ class PostsRepoImpl @Inject constructor(private val service: PostsService):Posts
         }
     }
 
+    override suspend fun addPost(post: PostDomainModel){
+        TODO("Not yet implemented")
+    }
+
     override suspend fun getPost(id: Int) :PostDomainModel{
         TODO("return a specific post")
     }

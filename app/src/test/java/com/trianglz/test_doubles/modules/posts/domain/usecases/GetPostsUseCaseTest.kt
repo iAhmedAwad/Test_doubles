@@ -10,7 +10,10 @@ import org.junit.Rule
 import org.junit.Test
 import org.mockito.InjectMocks
 import org.mockito.Mock
+import org.mockito.Mockito
 import org.mockito.Mockito.`when`
+import org.mockito.Mockito.doNothing
+
 import org.mockito.Mockito.doReturn
 import org.mockito.junit.MockitoJUnit
 import org.mockito.junit.MockitoRule
@@ -67,6 +70,16 @@ class GetPostsUseCaseTest {
             val result = useCase.calculatePostsReachSum(listOf(2, 2))
             assertThat(result).isEqualTo(8)
             // assertThat(result).isEqualTo(7)
+        }
+    }
+
+    //Methods with Unit return type
+    @Test
+    fun addBook() {
+        runBlockingTest {
+            val post = PostDomainModel(2, "title", "body", 4)
+            `when`(repo.addPost(post)).thenReturn(Unit)
+            useCase.addPost(post)
         }
     }
 }
