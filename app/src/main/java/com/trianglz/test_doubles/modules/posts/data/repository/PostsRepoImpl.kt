@@ -38,6 +38,10 @@ class PostsRepoImpl @Inject constructor(private val service: PostsService):Posts
         }
     }
 
+    override suspend fun getPost(id: Int) :PostDomainModel{
+        TODO("return a specific post")
+    }
+
     companion object{
         private const val TAG = "PostsRepoImpl"
     }

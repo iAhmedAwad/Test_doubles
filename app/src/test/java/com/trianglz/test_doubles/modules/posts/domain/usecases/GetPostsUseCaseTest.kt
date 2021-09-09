@@ -11,11 +11,11 @@ import org.junit.Test
 import org.mockito.InjectMocks
 import org.mockito.Mock
 import org.mockito.Mockito.`when`
+import org.mockito.Mockito.doReturn
 import org.mockito.junit.MockitoJUnit
 import org.mockito.junit.MockitoRule
 
 @ExperimentalCoroutinesApi
-
 class GetPostsUseCaseTest {
 
     @Rule
@@ -44,7 +44,30 @@ class GetPostsUseCaseTest {
 
             `when`(repo.getPosts()).thenReturn(posts)
 
+            //Exception
+            // doReturn(posts).`when`(repo.getPosts())
+            doReturn(posts).`when`(repo).getPosts()
             assertThat(useCase.execute()).doesNotContain(null)
         }
     }
+
+    //Multiple calls
+
+    @Test
+    fun calculatePostsReachSum_sumIsEight_returnsEight() {
+        runBlockingTest {
+
+            val post = PostDomainModel(2, "title", "body", 4)
+
+            // val post2 = PostDomainModel(2, "title", "body",3)
+
+            // `when`(repo.getPost(2)).thenReturn(post).thenReturn(post2)
+            `when`(repo.getPost(2)).thenReturn(post)
+
+            val result = useCase.calculatePostsReachSum(listOf(2, 2))
+            assertThat(result).isEqualTo(8)
+            // assertThat(result).isEqualTo(7)
+        }
+    }
 }
+
