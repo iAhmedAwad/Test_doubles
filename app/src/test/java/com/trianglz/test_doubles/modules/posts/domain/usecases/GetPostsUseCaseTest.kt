@@ -8,6 +8,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.InjectMocks
 import org.mockito.Mock
+import org.mockito.Mockito.times
 import org.mockito.Mockito.verify
 import org.mockito.junit.MockitoJUnitRunner
 
@@ -23,7 +24,7 @@ class GetPostsUseCaseTest {
 
 
     @Test
-    fun addPost() {
+    fun addPost_verifyMethodCalled_isTrue() {
 
         runBlockingTest {
 
@@ -32,6 +33,20 @@ class GetPostsUseCaseTest {
             useCase.addPost(post)
 
             verify(repo).addPost(post)
+        }
+    }
+
+    //Times of interactions?
+    @Test
+    fun addPost_verifyMethodCalledZeroTimes_isTrue() {
+
+        runBlockingTest {
+
+            val post = PostDomainModel(1, "title", "body")
+
+            useCase.addPost(post)
+
+            verify(repo, times(1)).addPost(post)
         }
     }
 
