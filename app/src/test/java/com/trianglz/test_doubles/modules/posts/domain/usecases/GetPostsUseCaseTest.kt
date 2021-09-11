@@ -11,6 +11,7 @@ import org.mockito.Mock
 import org.mockito.Mockito.never
 import org.mockito.Mockito.times
 import org.mockito.Mockito.verify
+import org.mockito.Mockito.verifyNoInteractions
 import org.mockito.junit.MockitoJUnitRunner
 
 @ExperimentalCoroutinesApi
@@ -47,7 +48,7 @@ class GetPostsUseCaseTest {
 
             useCase.addPost(post)
 
-            verify(repo, times(1)).addPost(post)
+            verify(repo, times(0)).addPost(post)
         }
     }
 
@@ -61,6 +62,19 @@ class GetPostsUseCaseTest {
             useCase.addPost(post)
 
             verify(repo, never()).addPost(post)
+        }
+    }
+
+    @Test
+    fun addPost_verifyMethodNoInterAction_isTrue() {
+
+        runBlockingTest {
+
+            val post = PostDomainModel(1, "title", "body")
+
+            useCase.addPost(post)
+
+           verifyNoInteractions(repo)
         }
     }
 
