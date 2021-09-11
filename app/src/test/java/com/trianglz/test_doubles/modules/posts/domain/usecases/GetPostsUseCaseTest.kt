@@ -8,6 +8,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.InjectMocks
 import org.mockito.Mock
+import org.mockito.Mockito.never
 import org.mockito.Mockito.times
 import org.mockito.Mockito.verify
 import org.mockito.junit.MockitoJUnitRunner
@@ -47,6 +48,19 @@ class GetPostsUseCaseTest {
             useCase.addPost(post)
 
             verify(repo, times(1)).addPost(post)
+        }
+    }
+
+    @Test
+    fun addPost_verifyMethodNeverCalled_isTrue() {
+
+        runBlockingTest {
+
+            val post = PostDomainModel(1, "title", "body")
+
+            useCase.addPost(post)
+
+            verify(repo, never()).addPost(post)
         }
     }
 
