@@ -11,8 +11,10 @@ class GetPostsUseCase @Inject constructor(private val postsRepo: PostsRepo) {
     }
 
     suspend fun addPost(post: PostDomainModel) {
-        //Hypothetical condition
-       // if (post.id > 9)
+
+        if (postsRepo.checkPostValidity(post))
             postsRepo.addPost(post)
     }
+
+
 }

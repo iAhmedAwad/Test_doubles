@@ -42,6 +42,10 @@ class PostsRepoImpl @Inject constructor(private val service: PostsService):Posts
         TODO("Not yet implemented")
     }
 
+    override suspend fun checkPostValidity(post: PostDomainModel): Boolean {
+        TODO("Not yet implemented")
+    }
+
     companion object{
         private const val TAG = "PostsRepoImpl"
     }

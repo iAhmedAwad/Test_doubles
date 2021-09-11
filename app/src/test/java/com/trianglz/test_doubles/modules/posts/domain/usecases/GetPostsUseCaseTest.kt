@@ -6,8 +6,12 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.mockito.InOrder
 import org.mockito.InjectMocks
 import org.mockito.Mock
+import org.mockito.Mockito
+import org.mockito.Mockito.`when`
+import org.mockito.Mockito.inOrder
 import org.mockito.Mockito.never
 import org.mockito.Mockito.times
 import org.mockito.Mockito.verify
@@ -24,58 +28,25 @@ class GetPostsUseCaseTest {
     @InjectMocks
     private lateinit var useCase: GetPostsUseCase
 
-
     @Test
-    fun addPost_verifyMethodCalled_isTrue() {
+    fun testBehaviour_createPostBeforeAddPost_isTrue() {
 
         runBlockingTest {
 
             val post = PostDomainModel(1, "title", "body")
+
+            `when`(repo.checkPostValidity(post)).thenReturn(true)
 
             useCase.addPost(post)
 
             verify(repo).addPost(post)
+            verify(repo).checkPostValidity(post)
+
+            // val inOrder = inOrder(repo)
+            //
+            // inOrder.verify(repo).addPost(post)
+            // inOrder.verify(repo).checkPostValidity(post)
+
         }
     }
-
-    //Times of interactions?
-    @Test
-    fun addPost_verifyMethodCalledZeroTimes_isTrue() {
-
-        runBlockingTest {
-
-            val post = PostDomainModel(1, "title", "body")
-
-            useCase.addPost(post)
-
-            verify(repo, times(0)).addPost(post)
-        }
-    }
-
-    @Test
-    fun addPost_verifyMethodNeverCalled_isTrue() {
-
-        runBlockingTest {
-
-            val post = PostDomainModel(1, "title", "body")
-
-            useCase.addPost(post)
-
-            verify(repo, never()).addPost(post)
-        }
-    }
-
-    @Test
-    fun addPost_verifyMethodNoInterAction_isTrue() {
-
-        runBlockingTest {
-
-            val post = PostDomainModel(1, "title", "body")
-
-            useCase.addPost(post)
-
-           verifyNoInteractions(repo)
-        }
-    }
-
 }
