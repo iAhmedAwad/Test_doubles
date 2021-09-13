@@ -21,17 +21,17 @@ class PostsRepoImpl @Inject constructor(private val service: PostsService):Posts
                     postDataResponseItem.toPostDomainModel() }
             }
             is NetworkResponse.NetworkError -> {
-                Log.d(TAG, "NetworkError: Error: ${result.error.message}")
+
                 return emptyList()
             }
 
             is NetworkResponse.ServerError -> {
-                Log.d(TAG, "ServerError: Error: ${result.body}")
+
                 return emptyList()
 
             }
             is NetworkResponse.UnknownError -> {
-                Log.d(TAG, "UnknownError: Error: ${result.error.message}")
+
                 return emptyList()
 
             }
