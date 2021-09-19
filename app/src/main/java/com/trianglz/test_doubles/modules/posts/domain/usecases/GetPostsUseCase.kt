@@ -6,8 +6,11 @@ import javax.inject.Inject
 
 class GetPostsUseCase @Inject constructor(private val postsRepo: PostsRepo) {
 
-suspend fun execute(): List<PostDomainModel> {
-    return postsRepo.getPosts()
-}
+    suspend fun getPostsList(): List<PostDomainModel> {
+        return postsRepo.getPosts()
+    }
 
+    suspend fun getFirstPostId(): Int {
+        return postsRepo.getPosts()[0].id
+    }
 }
