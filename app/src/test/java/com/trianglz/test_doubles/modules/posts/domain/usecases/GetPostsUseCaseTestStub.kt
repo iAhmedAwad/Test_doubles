@@ -4,11 +4,13 @@ import com.google.common.truth.Truth.assertThat
 import com.trianglz.test_doubles.modules.posts.data.repository.PostsRepoImplTestStub
 import com.trianglz.test_doubles.modules.posts.domain.models.PostDomainModel
 import com.trianglz.test_doubles.modules.posts.domain.repository.PostsRepo
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Test
 import org.mockito.Mockito.`when`
 import org.mockito.Mockito.mock
 
+@ExperimentalCoroutinesApi
 class GetPostsUseCaseTestStub {
 
     @Test
