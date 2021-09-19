@@ -3,10 +3,12 @@ package com.trianglz.test_doubles.modules.posts.domain.usecases
 import com.google.common.truth.Truth.assertThat
 import com.trianglz.test_doubles.modules.posts.data.repository.PostsRepoImplTestSpy
 import com.trianglz.test_doubles.modules.posts.domain.models.PostDomainModel
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Before
 import org.junit.Test
 
+@ExperimentalCoroutinesApi
 class GetPostsUseCaseTestSpy {
 
     lateinit var repo: PostsRepoImplTestSpy
