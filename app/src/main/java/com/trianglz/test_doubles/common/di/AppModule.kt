@@ -1,6 +1,5 @@
 package com.trianglz.test_doubles.common.di
 
-import android.provider.SyncStateContract
 import androidx.lifecycle.ViewModelProvider
 import com.haroldadmin.cnradapter.NetworkResponseAdapterFactory
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
@@ -8,10 +7,11 @@ import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import com.trianglz.test_doubles.common.di.viewmodel.DaggerViewModelFactory
 import com.trianglz.test_doubles.utils.Constants
-import com.trianglz.test_doubles.utils.Constants.Companion.BASE_URL
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -58,5 +58,13 @@ abstract class AppModule {
             .addCallAdapterFactory(NetworkResponseAdapterFactory())
             .client(okHttpClient)
             .build()
+
+
+        @Singleton
+        @Provides
+        fun provideIODispatcher(): CoroutineDispatcher = Dispatchers.IO
+
     }
+
+
 }
